@@ -50,5 +50,8 @@ i2.another={
 
 console.log(i2.another)
 
-i1.another={};
+i1.another={
+    name: "강아지",
+    age:10,
+};
 console.log(i1.another);

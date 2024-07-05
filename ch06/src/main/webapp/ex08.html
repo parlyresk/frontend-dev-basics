@@ -3,6 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+window.onload=function(){
+	setTimeout(function(){
+		var imgElement = document.createElement('img');
+		imgElement.src = 'https://i.namu.wiki/i/ieNO5Cow2iXxPzlKaW1DgzQ1WXsJCFtoz6axDlWH39NYFPwY78M8vsEqZUpSfglnE4ssQu_obfSisbMsjjahsw.webp';
+		imgElement.style.width = "200px";
+		imgElement.alt = '고양이 사진';
+		imgElement.title = ' 노르웨이 숲 고양이';
+		
+		document.body.appendChild(imgElement);
+	},2000);
+	
+	
+}
+</script>
 </head>
 <body>
 	<h1 id='h' data-no='10'>DOM(Document Object Model)</h1>

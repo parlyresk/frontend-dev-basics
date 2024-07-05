@@ -3,6 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+window.onload=function(){
+	setTimeout(function(){
+		var imgElement = document.createElement('img');
+		
+		// getAttribute, setAttribute
+		// 표준 속성( 원래부터 존재하는 속성, 멤버변수같은것) 읽기 쓰기도 가능하지만
+		// 비표준 속성( 사용자가 마음대로 만든 속성을) 읽기 쓰기를 하기 위해 사용함
+		// 비표준 속성은 .으로 호출할 수 없기 때문임
+		
+		imgElement.setAttribute('src','https://i.namu.wiki/i/ieNO5Cow2iXxPzlKaW1DgzQ1WXsJCFtoz6axDlWH39NYFPwY78M8vsEqZUpSfglnE4ssQu_obfSisbMsjjahsw.webp');
+		
+		imgElement.setAttribute('style','width: 200px');
+		imgElement.setAttribute('alt','고양이 사진');
+		imgElement.setAttribute('title',' 노르웨이 숲 고양이');
+		imgElement.setAttribute('no',10); // 비표준 속성을 사용할 때 data-를 붙이는게 표준 규약 "data-no" 등
+		
+		console.log(imgElement.no,imgElement.getAttribute('no'), imgElement.alt);
+		
+		document.body.appendChild(imgElement);
+	},2000);
+	
+	
+}
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>

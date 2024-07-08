@@ -1,0 +1,57 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>​
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
+<script>
+$(function(){
+	$('button').click(function(){
+		var vo = {
+			name: "세윤",
+			password: "qwer1234",
+			contents: "고고고고고곡",
+		};
+		$.ajax({
+			url: '/ch08/api/post1',
+			async: true,
+			type: 'post',
+			dataType: 'json',
+			contentType: 'application/x-www-form-urlencoded',
+			data: $.param(vo),
+			success: function(response){
+				console.log(response);
+				if(response.result !== 'success'){
+					console.error(response.message);
+					return;
+				}
+				
+				var vo = response.data;
+				
+				var htmls="";
+				htmls+=("<h3>"+vo.no+"</h3>");
+				htmls+=("<h4>"+vo.name+"</h4>");
+				htmls+=("<h5>"+vo.contents+"</h5>");
+				
+				$("#data").html(htmls);
+				
+			},
+			error: function(xhr,status,err){
+				console.error(status,err);
+			}
+			
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<h1>Ajax Test: JsonFormat Data: $.ajax()함수 사용하기</h1>
+	<button>데이터 보내기(POST,PUT,DELETE)</button>
+	<div id="data"></div>
+</body>
+</html>

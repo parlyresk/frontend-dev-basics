@@ -15,3 +15,4 @@ console.log("no:10\nname: 세윤\nemail: ksy98325@naver.com");
 console.log(`no:${no}
 name: ${name}
 email: ${email}`);
+
